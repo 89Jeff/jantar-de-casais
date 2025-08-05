@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento - 2° Jantar de Casais</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #b30000;
+    }
+    .evento-info {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .pix-container {
+      margin: 20px 0;
+    }
+    img {
+      max-width: 200px;
+    }
+    .pix-chave {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    a.botao-cartao {
+      display: inline-block;
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a.botao-cartao:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>2° Jantar de Casais</h1>
+  <div class="evento-info">
+    <p><strong>Tema:</strong> A culpa é Minha</p>
+    <p><strong>Data:</strong> 27/09</p>
+    <p><strong>Horário:</strong> 18:00</p>
+  </div>
+
+  <h2>Pagamento via Pix</h2>
+  <div class="pix-container">
+    <img src="LINK-DA-IMAGEM-DO-QR-CODE" alt="QR Code Pix">
+    <div class="pix-chave" id="pix-chave">SUA-CHAVE-PIX-AQUI</div>
+    <button onclick="copiarPix()">Copiar Chave Pix</button>
+  </div>
+
+  <h2>Pagamento por Cartão</h2>
+  <a class="botao-cartao" href="LINK-DO-PAGAMENTO-CARTAO" target="_blank">
+    Pagar com Cartão
+  </a>
+</div>
+
+<script>
+  function copiarPix() {
+    const chave = document.getElementById('pix-chave').innerText;
+    navigator.clipboard.writeText(chave).then(() => {
+      alert('Chave Pix copiada!');
+    });
+  }
+</script>
+
+</body>
+</html>
