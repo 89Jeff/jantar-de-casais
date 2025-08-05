@@ -3,102 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagamento - 2° Jantar de Casais</title>
+  <title>2° Jantar de Casais</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
       text-align: center;
-      padding: 20px;
+      background-color: #f9f9f9;
       color: #333;
-    }
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h1 {
-      color: #b30000;
+      color: #b22222;
     }
-    .evento-info {
+    .info {
+      font-size: 18px;
       margin-bottom: 20px;
-      font-size: 16px;
-    }
-    .pix-container {
-      margin: 20px 0;
     }
     img {
-      max-width: 200px;
+      width: 250px;
+      margin: 20px 0;
     }
-    .pix-chave {
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      margin-top: 10px;
-      font-weight: bold;
+    .pix-key {
+      font-size: 18px;
+      margin: 10px 0;
     }
     button {
-      background: #28a745;
+      background-color: #b22222;
       color: white;
-      padding: 12px 20px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
+      padding: 10px 20px;
       font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
     }
     button:hover {
-      background: #218838;
+      opacity: 0.9;
     }
-    a.botao-cartao {
+    a.button-link {
       display: inline-block;
-      margin-top: 15px;
-      background: #007bff;
+      background-color: #0077cc;
       color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
+      padding: 10px 20px;
       text-decoration: none;
+      border-radius: 5px;
       font-size: 16px;
+      margin-top: 15px;
     }
-    a.botao-cartao:hover {
-      background: #0056b3;
+    a.button-link:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-
-<div class="container">
   <h1>2° Jantar de Casais</h1>
-  <div class="evento-info">
+  <div class="info">
     <p><strong>Tema:</strong> A culpa é Minha</p>
     <p><strong>Data:</strong> 27/09</p>
     <p><strong>Horário:</strong> 18:00</p>
   </div>
 
   <h2>Pagamento via Pix</h2>
-  <div class="pix-container">
-    <img src="LINK-DA-IMAGEM-DO-QR-CODE" alt="QR Code Pix">
-    <div class="pix-chave" id="pix-chave">SUA-CHAVE-PIX-AQUI</div>
-    <button onclick="copiarPix()">Copiar Chave Pix</button>
-  </div>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV8AAAFnCAIAAACO/t0WAAAgAElEQVR4Aey9h1tVV77/fwr9UA4dxYIFAbsmmZiMM6aYTBI1zcwkJjNOdJJM5k6+MbHEgooFFRTEAkgvIqAUqYfTK4eiuXfmPve5f9CXs1/yyc7ZgMSU+X1/z6zHZ7vYZ++1V/l83uvT1lo6tyZ5lOT1..." alt="QR Code Pix">
+  <p class="pix-key">Chave Pix: <strong id="pixKey">11916687912</strong></p>
+  <button onclick="copyPix()">Copiar Chave Pix</button>
 
-  <h2>Pagamento por Cartão</h2>
-  <a class="botao-cartao" href="LINK-DO-PAGAMENTO-CARTAO" target="_blank">
-    Pagar com Cartão
-  </a>
-</div>
+  <h2>Pagamento com Cartão</h2>
+  <a href="https://mpago.la/1VSGsgb" target="_blank" class="button-link">Pagar com Cartão</a>
 
-<script>
-  function copiarPix() {
-    const chave = document.getElementById('pix-chave').innerText;
-    navigator.clipboard.writeText(chave).then(() => {
-      alert('Chave Pix copiada!');
-    });
-  }
-</script>
-
+  <script>
+    function copyPix() {
+      const pixKey = document.getElementById("pixKey").textContent;
+      navigator.clipboard.writeText(pixKey).then(() => {
+        alert("Chave Pix copiada!");
+      });
+    }
+  </script>
 </body>
 </html>
